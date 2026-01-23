@@ -6,9 +6,6 @@ metadata:
     app: tello-frontend
 spec:
   replicas: 1  # Can have multiple replicas for the frontend
-  selector:
-    matchLabels:
-      app: tello-frontend
   template:
     metadata:
       labels:
@@ -47,7 +44,6 @@ spec:
             port: 80
           initialDelaySeconds: 5
           periodSeconds: 10
-
 ---
 apiVersion: v1
 kind: Service
