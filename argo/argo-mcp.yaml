@@ -2,7 +2,9 @@ apiVersion: kagent.dev/v1alpha1
 kind: MCPServer
 metadata:
   name: argocd-mcp-server
-  namespace: kagent
+  namespace: mcp
+  labels:
+    kagent.dev/discovery: disabled
 spec:
   deployment:
     args:

@@ -75,5 +75,6 @@ spec:
     targetPort: 3002
     protocol: TCP
     name: mcp
+    appProtocol: kgateway.dev/mcp
   selector:
     app: tello-backend
