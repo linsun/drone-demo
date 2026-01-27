@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: linsun/tello-frontend:latest  # You'll need to build this image
+        image: linsun/tello-frontend:latest  # You\'ll need to build this image
         imagePullPolicy: Always
         ports:
         - containerPort: 80
