@@ -1,20 +1,51 @@
-
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
+  annotations:
+    argocd.argoproj.io/tracking-id: drone-demo:gateway.networking.k8s.io/HTTPRoute:default/frontend-route
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"gateway.networking.k8s.io/v1","kind":"HTTPRoute","metadata":{"annotations":{"argocd.argoproj.io/tracking-id":"drone-demo:gateway.networking.k8s.io/HTTPRoute:default/frontend-route"},"name":"frontend-route","namespace":"default"},"spec":{"parentRefs":[{"name":"agentgateway-proxy","namespace":"agentgateway-system"}],"rules":[{"backendRefs":[{"kind":"Service","name":"tello-frontend","port":80}],"matches":[{"path":{"type":"PathPrefix","value":"/"}}]}]}}
+  creationTimestamp: "2026-01-27T17:01:18Z"
+  generation: 3
   name: frontend-route
   namespace: default
+  resourceVersion: "11109225"
+  uid: 46c4047f-1e95-45e1-9fad-58c5278b83d4
 spec:
   parentRefs:
-  - name: agentgateway-proxy
+  - group: gateway.networking.k8s.io
+    kind: Gateway
+    name: agentgateway-proxy
     namespace: agentgateway-system
   rules:
-  - matches:
+  - backendRefs:
+    - group: ""
+      kind: Service
+      name: tello-frontend
+      port: 80
+      weight: 1
+    matches:
     - path:
         type: PathPrefix
         value: /
-    backendRefs:
-    #- name: tello-frontend
-    - name: tello-frontend.default.svc.cluster.local
-      kind: Service
-      port: 80
+status:
+  parents:
+  - conditions:
+    - lastTransitionTime: "2026-01-27T17:02:28Z"
+      message: ""
+      observedGeneration: 3
+      reason: Accepted
+      status: "True"
+      type: Accepted
+    - lastTransitionTime: "2026-01-27T19:15:56Z"
+      message: ""
+      observedGeneration: 3
+      reason: ResolvedRefs
+      status: "True"
+      type: ResolvedRefs
+    controllerName: agentgateway.dev/agentgateway
+    parentRef:
+      group: gateway.networking.k8s.io
+      kind: Gateway
+      name: agentgateway-proxy
+      namespace: agentgateway-system
