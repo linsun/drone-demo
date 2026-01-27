@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tello-frontend
+  name: frontend
   labels:
-    app: tello-frontend
+    app: frontend
 spec:
-  replicas: 1  # Can have multiple replicas for the frontend
+  replicas: 1
   selector:
     matchLabels:
-      app: tello-frontend  
+      app: frontend  
   template:
     metadata:
       labels:
-        app: tello-frontend
+        app: frontend
     spec:
       containers:
-      - name: tello-frontend
+      - name: frontend
         image: linsun/tello-frontend:latest  # You'll need to build this image
         imagePullPolicy: Always
         ports:
@@ -50,9 +50,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: tello-frontend
+  name: frontend
   labels:
-    app: tello-frontend
+    app: frontend
 spec:
   ports:
   - port: 80
@@ -60,4 +60,4 @@ spec:
     protocol: TCP
     name: http
   selector:
-    app: tello-frontend
+    app: frontend

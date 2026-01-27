@@ -14,7 +14,6 @@ spec:
         type: PathPrefix
         value: /
     backendRefs:
-    #- name: tello-frontend
-    - name: tello-frontend.default.svc.cluster.local
+    - name: frontend
       kind: Service
       port: 80

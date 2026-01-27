@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tello-backend
+  name: backend
   namespace: mcp
   labels:
-    app: tello-backend
+    app: backend
 spec:
   replicas: 1  # Only 1 replica since we need direct connection to the drone
   selector:
     matchLabels:
-      app: tello-backend
+      app: backend
   template:
     metadata:
       labels:
-        app: tello-backend
+        app: backend
     spec:
       containers:
-      - name: tello-backend
+      - name: backend
         image: linsun/tello-backend:latest
         imagePullPolicy: Always
         ports:
@@ -62,10 +62,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: tello-backend
+  name: backend
   namespace: mcp
   labels:
-    app: tello-backend
+    app: backend
 spec:
   ports:
   - port: 3001
@@ -78,4 +78,4 @@ spec:
     name: http-mcp
     appProtocol: kgateway.dev/mcp
   selector:
-    app: tello-backend
+    app: backend
