@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tello-backend
+  namespace: mcp
   labels:
     app: tello-backend
 spec:
@@ -62,10 +63,10 @@ apiVersion: v1
 kind: Service
 metadata:
   name: tello-backend
+  namespace: mcp
   labels:
     app: tello-backend
 spec:
-  type: NodePort
   ports:
   - port: 3001
     targetPort: 3001
@@ -74,7 +75,7 @@ spec:
   - port: 3002
     targetPort: 3002
     protocol: TCP
-    name: mcp
+    name: http-mcp
     appProtocol: kgateway.dev/mcp
   selector:
     app: tello-backend

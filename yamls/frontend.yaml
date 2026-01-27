@@ -6,6 +6,9 @@ metadata:
     app: tello-frontend
 spec:
   replicas: 1  # Can have multiple replicas for the frontend
+  selector:
+    matchLabels:
+      app: tello-frontend  
   template:
     metadata:
       labels:
@@ -21,7 +24,7 @@ spec:
           protocol: TCP
         env:
         - name: BACKEND_SERBER_URL
-          value: "http://tello-backend:3001"
+          value: "http://tello-backend.mcp.svc.cluster.local:3001"
         - name: OLLAMA_URL
           value: "http://host.docker.internal:11434"
         resources:
@@ -37,7 +40,6 @@ spec:
             port: 80
           initialDelaySeconds: 10
           periodSeconds: 30
-
         readinessProbe:
           httpGet:
             path: /
@@ -52,7 +54,6 @@ metadata:
   labels:
     app: tello-frontend
 spec:
-  type: LoadBalancer  # Or NodePort if you don't have LoadBalancer support
   ports:
   - port: 80
     targetPort: 80
