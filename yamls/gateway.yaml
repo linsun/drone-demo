@@ -5,6 +5,11 @@ metadata:
   namespace: agentgateway-system
 spec:
   gatewayClassName: agentgateway
+  infrastructure:
+    parametersRef:
+      group: gateway.kgateway.dev
+      kind: GatewayParameters
+      name: agentgateway
   listeners:
   - name: http
     protocol: HTTP
@@ -12,3 +17,12 @@ spec:
     allowedRoutes:
       namespaces:
         from: All
+---
+apiVersion: agentgateway.dev/v1alpha1
+kind: AgentgatewayParameters
+metadata:
+  name: agentgateway
+  namespace: agentgateway-system
+spec:
+  istio:
+    ca: https://istiod.istio-system.svc:15012
