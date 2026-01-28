@@ -7,8 +7,8 @@ spec:
   gatewayClassName: agentgateway
   infrastructure:
     parametersRef:
-      group: gateway.kgateway.dev
-      kind: GatewayParameters
+      group: agentgateway.dev/v1alpha1
+      kind: AgentgatewayParameters
       name: agentgateway
   listeners:
   - name: http
