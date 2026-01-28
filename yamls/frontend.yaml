@@ -61,3 +61,17 @@ spec:
     name: http
   selector:
     app: frontend
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: frontend-route
+  namespace: default
+spec:
+  parentRefs:
+  - name: agentgateway-proxy
+    namespace: agentgateway-system
+  rules:
+  - backendRefs:
+    - name: frontend
+      port: 80
