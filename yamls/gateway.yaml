@@ -2,12 +2,12 @@ apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
   name: agentgateway-proxy
-  namespace: agentgateway-system
+  namespace: default
 spec:
   gatewayClassName: agentgateway
   infrastructure:
     parametersRef:
-      group: agentgateway.dev/v1alpha1
+      group: agentgateway.dev
       kind: AgentgatewayParameters
       name: agentgateway
   listeners:
@@ -22,7 +22,6 @@ apiVersion: agentgateway.dev/v1alpha1
 kind: AgentgatewayParameters
 metadata:
   name: agentgateway
-  namespace: agentgateway-system
+  namespace: default
 spec:
-  istio:
-    ca: https://istiod.istio-system.svc:15012
+  istio: {}
