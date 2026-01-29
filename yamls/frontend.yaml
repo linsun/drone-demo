@@ -30,8 +30,8 @@ spec:
           protocol: TCP
         env:
         - name: BACKEND_SERVER_URL
-          # value: "http://backend.mcp.svc.cluster.local:3001"
-          value: "http://localhost:50000"
+          value: "http://agentgateway.mcp.svc.cluster.local:3001"
+          # value: "http://localhost:50000"
         - name: OLLAMA_URL
           # value: "http://host.docker.internal:11434"
           value: "http://localhost:11434"
@@ -69,17 +69,3 @@ spec:
     name: http
   selector:
     app: frontend
----
-apiVersion: gateway.networking.k8s.io/v1
-kind: HTTPRoute
-metadata:
-  name: frontend-route
-  namespace: default
-spec:
-  parentRefs:
-  - name: agentgateway-proxy
-    namespace: default
-  rules:
-  - backendRefs:
-    - name: frontend
-      port: 80
