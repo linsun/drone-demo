@@ -2,7 +2,7 @@ apiVersion: kagent.dev/v1alpha1
 kind: MCPServer
 metadata:
   name: argocd-mcp-server
-  namespace: kagent
+  namespace: mcp
   labels:
     kagent.dev/discovery: disabled
 spec:
@@ -12,8 +12,9 @@ spec:
     - "stdio"
     env:
       ARGOCD_BASE_URL: "https://argocd-server.argocd.svc.cluster.local:443"
-      ARGOCD_API_TOKEN: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcmdvY2QiLCJzdWIiOiJhZG1pbjphcGlLZXkiLCJuYmYiOjE3NjkxMTk3MTUsImlhdCI6MTc2OTExOTcxNSwianRpIjoiNTExZmE0ZjQtOGZkYS00OGEyLThjZTctZDdkYTJlODI5OTk0In0.6aQmtjOMRj0SVf_OH7-1HiF_hIasKVvaxHKW7IXLAXg"
       NODE_TLS_REJECT_UNAUTHORIZED: "0"
     cmd: npx
     port: 3000
+    SecretRefs:
+    - name: argocd-mcp-secret
   transportType: stdio

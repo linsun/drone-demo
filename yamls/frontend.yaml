@@ -22,8 +22,8 @@ spec:
       serviceAccountName: frontend
       containers:
       - name: frontend
-        image: linsun/tello-frontend:latest  # You'll need to build this image
-        imagePullPolicy: Always
+        image: linsun/tello-frontend:v1  # You'll need to build this image
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
           name: http

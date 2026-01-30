@@ -24,8 +24,8 @@ spec:
       serviceAccountName: backend
       containers:
       - name: backend
-        image: linsun/tello-backend:latest
-        imagePullPolicy: Always
+        image: linsun/tello-backend:v1
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3001
           name: http
