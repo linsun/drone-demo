@@ -42,6 +42,15 @@ spec:
           value: "3001"
         - name: MCP_PORT
           value: "3002"
+        - name: GITHUB_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: github-mcp-secret
+              key: GITHUB_PERSONAL_ACCESS_TOKEN
+        - name: GITHUB_MCP_SERVER_URL
+          value: "http://agentgateway.mcp.svc.cluster.local:3000/mcp"
+        - name: GITHUB_PR_EVENT_NAME
+          value: "Solo-connect-2026"          
         resources:
           requests:
             memory: "128Mi"

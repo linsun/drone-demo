@@ -29,9 +29,8 @@ spec:
           name: http
           protocol: TCP
         env:
-        - name: BACKEND_SERVER_URL
-          value: "http://agentgateway.mcp.svc.cluster.local:3001"
-          # value: "http://localhost:50000"
+        - name: REACT_APP_BACKEND_SERVER_URL
+          value: "http://localhost:3001"
         - name: OLLAMA_URL
           # value: "http://host.docker.internal:11434"
           value: "http://localhost:11434"
