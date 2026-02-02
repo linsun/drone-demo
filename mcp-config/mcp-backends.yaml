@@ -11,21 +11,21 @@ spec:
           host: argocd-mcp-server.mcp.svc.cluster.local
           port: 3000
           protocol: StreamableHTTP    
-      - name: github
-        static:
-          host: github-mcp-server.mcp.svc.cluster.local
-          port: 3000
-          protocol: StreamableHTTP
-      - name: drone
-        static:
-          host: backend.mcp.svc.cluster.local
-          port: 3002
-          protocol: StreamableHTTP
-      - name: kagent
-        static:
-          host: kagent-controller.kagent.svc.cluster.local
-          port: 8083
-          protocol: StreamableHTTP
+      # - name: github
+      #   static:
+      #     host: github-mcp-server.mcp.svc.cluster.local
+      #     port: 3000
+      #     protocol: StreamableHTTP
+      # - name: drone
+      #   static:
+      #     host: backend.mcp.svc.cluster.local
+      #     port: 3002
+      #     protocol: StreamableHTTP
+      # - name: kagent
+      #   static:
+      #     host: kagent-controller.kagent.svc.cluster.local
+      #     port: 8083
+      #     protocol: StreamableHTTP
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
