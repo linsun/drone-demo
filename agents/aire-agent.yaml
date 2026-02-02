@@ -9,7 +9,7 @@ spec:
   skills:
     insecureSkipVerify: true
     refs:
-      - docker.io/linsun/httproute:latest
+      - docker.io/linsun/httproute:v1
   declarative:
     a2aConfig:
       skills:

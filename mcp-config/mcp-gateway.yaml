@@ -12,3 +12,26 @@ spec:
   - protocol: HTTP
     port: 3001
     name: http-1
+---
+apiVersion: agentgateway.dev/v1alpha1
+kind: AgentgatewayParameters
+metadata:
+  name: agentgateway
+  namespace: mcp
+spec:
+  image:
+    registry: ghcr.io
+    tag: "0.12.0-alpha.ccd9efaa558c64478d6e38422c941837be891f12"
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: GatewayClass
+metadata:
+  name: agentgateway
+spec:
+  controllerName: agentgateway.dev/agentgateway
+  description: Specialized class for agentgateway.
+  parametersRef:
+    kind: AgentgatewayParameters
+    group: agentgateway.dev
+    name: agentgateway
+    namespace: mcp
