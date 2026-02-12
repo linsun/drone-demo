@@ -21,7 +21,7 @@ metadata:
 spec:
   image:
     registry: ghcr.io/agentgateway
-    tag: "0.12.0"
+    # tag: "0.12.0"
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: GatewayClass
