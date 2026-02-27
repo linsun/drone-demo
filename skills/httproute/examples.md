@@ -43,7 +43,7 @@ spec:
           kind: AgentgatewayBackend
 ```
 
-## Hostname + path
+## Hostname + path. Only use hostname if users specifies one.
 
 ```yaml
 apiVersion: gateway.networking.k8s.io/v1

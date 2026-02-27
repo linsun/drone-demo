@@ -1,6 +1,6 @@
 ---
 name: httproute
-description: Create valid Kubernetes Gateway API HTTPRoute resources. Use when creating or editing HTTPRoute manifests, routing HTTP traffic to services, or when the user asks for HTTPRoute, Gateway API routes, or path-based routing.
+description: Create valid Kubernetes Gateway API HTTPRoute resources. Use when creating or editing HTTPRoute manifests, routing HTTP traffic to services, or when the user asks for an HTTP route, http route, httproute, HTTPRoute, Gateway API routes, or path-based routing.
 ---
 
 # HTTPRoute Skill
@@ -9,7 +9,8 @@ Create useful and valid HTTPRoute resources using the Kubernetes Gateway API (`g
 
 ## When to Use
 
-- User asks for an HTTPRoute, route manifest, or path-based routing
+- User asks for an **HTTP route**, **http route**, **httproute**, or HTTPRoute
+- User asks for a route manifest or path-based routing
 - User wants to expose a Service through a Gateway
 - User needs to add hostname or path matching to existing routing
 
@@ -69,7 +70,7 @@ Omit `matches` to match all requests on that listener (catch-all).
 
 ## Hostnames
 
-Optional. Restrict by HTTP Host header:
+Optional, Only use hostname if users specifies one. Restrict by HTTP Host header:
 
 ```yaml
 spec:
