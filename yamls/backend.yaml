@@ -36,6 +36,8 @@ spec:
         env:
         - name: TELLO_PROXY_URL
           value: "http://host.docker.internal:50000"
+        - name: OLLAMA_URL
+          value: "http://host.docker.internal:11434"
         - name: USE_TELLO_PROXY
           value: "true"
         - name: HTTP_PORT
@@ -50,7 +52,7 @@ spec:
         - name: GITHUB_MCP_SERVER_URL
           value: "http://agentgateway.mcp.svc.cluster.local:3000/mcp"
         - name: GITHUB_PR_EVENT_NAME
-          value: "Solo-connect-2026"          
+          value: "KubeConEU-2026"
         resources:
           requests:
             memory: "128Mi"
