@@ -9,5 +9,5 @@ spec:
       namespace: default
   rules:
     - backendRefs:
-        - name: demo
+        - name: frontend
           port: 80
