@@ -29,11 +29,6 @@ spec:
           name: http
           protocol: TCP
         env:
-        - name: REACT_APP_BACKEND_SERVER_URL
-          value: "http://localhost:3001"
-        - name: OLLAMA_URL
-          # value: "http://host.docker.internal:11434"
-          value: "http://localhost:11434"
         resources:
           requests:
             memory: "128Mi"
