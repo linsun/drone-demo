@@ -11,3 +11,5 @@ spec:
     - backendRefs:
         - name: frontend
           port: 80
+      timeouts:
+        request: 300s
