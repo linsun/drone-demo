@@ -52,7 +52,7 @@ spec:
         - name: GITHUB_MCP_SERVER_URL
           value: "http://agentgateway.mcp.svc.cluster.local:3000/mcp"
         - name: GITHUB_PR_EVENT_NAME
-          value: "apidays-NY-2026"
+          value: "kcd-texas-2026"
         resources:
           requests:
             memory: "128Mi"
